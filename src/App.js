@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from './components/navbar';
 import './App.css';
 import Counters from "./components/counters";
+import Plot from 'react-plotly.js';
 
 class App extends Component {
   state = {
@@ -46,6 +47,19 @@ class App extends Component {
             onDelete={this.handleDelete}
           />
         </main>
+          <Plot
+            data={[
+              {
+                x: [1, 2, 3],
+                y: [2, 6, 3],
+                type: 'scatter',
+                mode: 'lines+markers',
+                marker: {color: 'red'},
+              },
+              {type: 'bar', x: [1, 2, 3], y: [2, 6, 3]},
+            ]}
+            layout={ {width: 640, height: 480, title: 'A Fancy Plot'} }
+          />
       </React.Fragment>
     );
   }
